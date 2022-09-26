@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <title>Temperature Converter</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+ </head>
+ <body>
+ <div>
+ <h1>Calculator</h1>
+ <div th:switch="${error}">
+ <p th:case="'FahrenheitFormatError'">
+ Wrong value  be a number
+ </p>
+ <p th:case="'CelsiusFormatError'">
+ Wrong value must be a number
+ </p>
+ <p th:case="'OperationFormatError'">
+ Wrong operation
+ </p>
+ </div>
+ <table border="1">
+ <form th:action="@{/convert}" method="get">
+ <table>
+ <tr>
+ <td><label for="n1">Premier nombre:</label></td>
+ <td><input name="n1"
+ id="n1"
+ th:name="n1" th:value="${n1}"></td>
+ </tr>
+ <tr>
+ <td><label for="n1">Deuxieme nombre:</label></td>
+ <td><input name="n2"
+ id="n2"
+ th:name="n2" th:value="${n2}"></td>
+ </tr>
+ <tr>
+    <td><label for="r">Resultat:</label></td>
+    <td><input name="r"
+    id="r"
+    th:name="r" th:value="${r}"></td>
+    </tr>
+ <tr>
+ <td><button type="submit" th:name="operation" th:value="plus">
+ +</button></td>
+ <td><button type="submit" th:name="operation" th:value="moins">
+ -</button></td>
+ <td><button type="submit" th:name="operation" th:value="times">
+   *</button></td>
+   <td><button type="submit" th:name="operation" th:value="iv">
+   /</button></td>
+ </tr>
+ </table>
+ </form>
+</table>
+ </div>
+ </body>
+ </html>
